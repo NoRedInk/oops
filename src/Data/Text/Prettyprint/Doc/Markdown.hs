@@ -6,6 +6,8 @@ module Data.Text.Prettyprint.Doc.Markdown
   ) where
 
 import "cmark" CMark
+import "base" Data.Monoid ((<>))
+import "text" Data.Text (Text)
 import "prettyprinter" Data.Text.Prettyprint.Doc
        (Doc, (<+>), align, annotate, enclose, hardline, indent, parens,
         pretty, softline, vsep)
@@ -13,7 +15,6 @@ import "prettyprinter-ansi-terminal"
        Data.Text.Prettyprint.Doc.Render.Terminal
        (AnsiStyle, Color(Blue, Yellow), bold, color, italicized,
         underlined)
-import "protolude" Protolude
 
 import qualified "text" Data.Text as T
 import qualified "prettyprinter" Data.Text.Prettyprint.Doc.Util

@@ -13,7 +13,6 @@ import "prettyprinter" Data.Text.Prettyprint.Doc
 import "this" Data.Text.Prettyprint.Doc.Markdown (fromMarkdown)
 import "prettyprinter-ansi-terminal"
        Data.Text.Prettyprint.Doc.Render.Terminal (AnsiStyle)
-import "protolude" Protolude
 
 import qualified "template-haskell" Language.Haskell.TH as TH
 import qualified "template-haskell" Language.Haskell.TH.Quote as QQ

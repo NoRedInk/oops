@@ -11,14 +11,12 @@ dependencies:
 - heredoc == 0.2.0.0
 - prettyprinter == 1.2.0.1
 - prettyprinter-ansi-terminal == 1.1.1.2
-- protolude == 0.2.1
 - template-haskell == 2.12.0.0
 - terminal-size == 0.3.2.1
 - text == 1.2.2.2
 default-extensions:
 - LambdaCase
 - NamedFieldPuns
-- NoImplicitPrelude
 - OverloadedStrings
 - PackageImports
 ghc-options:

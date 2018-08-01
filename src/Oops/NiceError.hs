@@ -10,6 +10,9 @@ module Oops.NiceError
   , extra
   ) where
 
+import "base" Data.List (intersperse)
+import "base" Data.Monoid ((<>))
+import "text" Data.Text (Text)
 import "prettyprinter" Data.Text.Prettyprint.Doc
        (Doc, LayoutOptions(LayoutOptions),
         PageWidth(AvailablePerLine, Unbounded), (<+>), align, annotate,
@@ -19,7 +22,7 @@ import "prettyprinter-ansi-terminal"
        (AnsiStyle, bold, renderIO)
 import "prettyprinter" Data.Text.Prettyprint.Doc.Util (reflow)
 import "this" Oops.Types (Help(Help))
-import "protolude" Protolude
+import "base" System.IO (stdout)
 import "heredoc" Text.Heredoc (str)
 
 import qualified "text" Data.Text as T
@@ -82,4 +85,4 @@ extra descriptionText value = Extra $ description <+> align prettyValue
     description :: Doc AnsiStyle
     description = annotate bold $ pretty descriptionText <> ":"
     prettyValue :: Doc ann
-    prettyValue = reflow $ show value
+    prettyValue = reflow . T.pack $ show value
