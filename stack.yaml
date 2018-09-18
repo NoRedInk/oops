@@ -1,7 +1,7 @@
 flags: {}
 extra-package-dbs: []
 packages:
-- .
+  - .
 extra-deps:
-- prettyprinter-1.2.0.1
-resolver: lts-10.10
+  - cmark-0.5.6
+resolver: lts-12.10
