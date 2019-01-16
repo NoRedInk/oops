@@ -4,4 +4,4 @@ packages:
   - .
 extra-deps:
   - cmark-0.5.6
-resolver: lts-12.10
+resolver: lts-12.26
