@@ -6,7 +6,6 @@ module Data.Text.Prettyprint.Doc.Markdown
 where
 
 import "cmark" CMark
-import "base" Data.Monoid ((<>))
 import "text" Data.Text (Text)
 import qualified "text" Data.Text as T
 import "prettyprinter" Data.Text.Prettyprint.Doc

@@ -10,7 +10,6 @@ module Oops.NiceError
 where
 
 import "base" Data.List (intersperse)
-import "base" Data.Monoid ((<>))
 import "text" Data.Text (Text)
 import qualified "text" Data.Text as T
 import "prettyprinter" Data.Text.Prettyprint.Doc

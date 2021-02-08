@@ -5,8 +5,6 @@
 -- Description : Types used by the Oops modules
 module Oops.Types where
 
-import "base" Control.Monad (fail)
-import "base" Data.String (String)
 import "prettyprinter" Data.Text.Prettyprint.Doc
 import "this" Data.Text.Prettyprint.Doc.Markdown (fromMarkdown)
 import "prettyprinter-ansi-terminal" Data.Text.Prettyprint.Doc.Render.Terminal
