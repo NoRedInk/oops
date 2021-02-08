@@ -1,33 +1,42 @@
 {-# LANGUAGE QuasiQuotes #-}
 
-{-|
-Description : A module for printing helpful error messages.
-
--}
+-- |
+-- Description : A module for printing helpful error messages.
 module Oops.NiceError
-  ( putNiceError
-  , Extra
-  , extra
-  ) where
+  ( putNiceError,
+    Extra,
+    extra,
+  )
+where
 
 import "base" Data.List (intersperse)
 import "base" Data.Monoid ((<>))
 import "text" Data.Text (Text)
+import qualified "text" Data.Text as T
 import "prettyprinter" Data.Text.Prettyprint.Doc
-       (Doc, LayoutOptions(LayoutOptions),
-        PageWidth(AvailablePerLine, Unbounded), (<+>), align, annotate,
-        indent, layoutPretty, line, pageWidth, pretty, vsep)
-import "prettyprinter-ansi-terminal"
-       Data.Text.Prettyprint.Doc.Render.Terminal
-       (AnsiStyle, bold, renderIO)
+  ( Doc,
+    LayoutOptions (LayoutOptions),
+    PageWidth (AvailablePerLine, Unbounded),
+    align,
+    annotate,
+    indent,
+    layoutPretty,
+    line,
+    pageWidth,
+    pretty,
+    vsep,
+    (<+>),
+  )
+import "prettyprinter-ansi-terminal" Data.Text.Prettyprint.Doc.Render.Terminal
+  ( AnsiStyle,
+    bold,
+    renderIO,
+  )
 import "prettyprinter" Data.Text.Prettyprint.Doc.Util (reflow)
-import "this" Oops.Types (Help(Help))
+import "this" Oops.Types (Help (Help))
+import qualified "terminal-size" System.Console.Terminal.Size as Terminal
 import "base" System.IO (stdout)
 import "heredoc" Text.Heredoc (str)
-
-import qualified "text" Data.Text as T
-import qualified "terminal-size" System.Console.Terminal.Size
-       as Terminal
 
 -- | Print a nice error to the console.
 --
@@ -70,7 +79,7 @@ center txt =
           contentWidth = maximum $ T.length <$> T.lines txt
           margin = max (cols - contentWidth) 0
           leftMargin = floor (fromIntegral margin / 2 :: Double)
-      in indent leftMargin $ pretty txt
+       in indent leftMargin $ pretty txt
 
 -- | An extra piece of information to be attached to a nice error.
 newtype Extra = Extra

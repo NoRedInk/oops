@@ -1,24 +1,36 @@
-{-|
-Description : Parsing a Markdown text into a terminal Doc format.
--}
+-- |
+-- Description : Parsing a Markdown text into a terminal Doc format.
 module Data.Text.Prettyprint.Doc.Markdown
-  ( fromMarkdown
-  ) where
+  ( fromMarkdown,
+  )
+where
 
 import "cmark" CMark
 import "base" Data.Monoid ((<>))
 import "text" Data.Text (Text)
-import "prettyprinter" Data.Text.Prettyprint.Doc
-       (Doc, (<+>), align, annotate, enclose, hardline, indent, parens,
-        pretty, softline, vsep)
-import "prettyprinter-ansi-terminal"
-       Data.Text.Prettyprint.Doc.Render.Terminal
-       (AnsiStyle, Color(Blue, Yellow), bold, color, italicized,
-        underlined)
-
 import qualified "text" Data.Text as T
-import qualified "prettyprinter" Data.Text.Prettyprint.Doc.Util
-       as Util
+import "prettyprinter" Data.Text.Prettyprint.Doc
+  ( Doc,
+    align,
+    annotate,
+    enclose,
+    hardline,
+    indent,
+    parens,
+    pretty,
+    softline,
+    vsep,
+    (<+>),
+  )
+import "prettyprinter-ansi-terminal" Data.Text.Prettyprint.Doc.Render.Terminal
+  ( AnsiStyle,
+    Color (Blue, Yellow),
+    bold,
+    color,
+    italicized,
+    underlined,
+  )
+import qualified "prettyprinter" Data.Text.Prettyprint.Doc.Util as Util
 
 -- | Turn a Markdown encoded text into a pretty printable Doc value.
 fromMarkdown :: Text -> Doc AnsiStyle
